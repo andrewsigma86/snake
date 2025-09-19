@@ -13,8 +13,6 @@ function startGame() {
 document.addEventListener("click", startGame);
 document.addEventListener("keydown", startGame);
 
-
-
 const playboard = document.querySelector(".play-board");
 const scoreElement = document.querySelector(".score");
 const highScoreElement = document.querySelector(".high-score");
@@ -72,16 +70,29 @@ const changeDirection = (e) => {
     moveSound.currentTime = 0; // Reiniciar sonido para permitir reproducción rápida
     moveSound.play(); // Reproducir sonido de movimiento
     
-    if (e.key === "ArrowUp" && velocityY !== 1) {
+    let key;
+    if (e.key) {
+        key = e.key;
+    } else if (e.target.id) {
+        // Si viene de un botón
+        switch(e.target.id) {
+            case "up-btn": key = "ArrowUp"; break;
+            case "down-btn": key = "ArrowDown"; break;
+            case "left-btn": key = "ArrowLeft"; break;
+            case "right-btn": key = "ArrowRight"; break;
+        }
+    }
+    
+    if (key === "ArrowUp" && velocityY !== 1) {
         velocityX = 0;
         velocityY = -1;
-    } else if (e.key === "ArrowDown" && velocityY !== -1) {
+    } else if (key === "ArrowDown" && velocityY !== -1) {
         velocityX = 0;
         velocityY = 1;
-    } else if (e.key === "ArrowLeft" && velocityX !== 1) {
+    } else if (key === "ArrowLeft" && velocityX !== 1) {
         velocityX = -1;
         velocityY = 0;
-    } else if (e.key === "ArrowRight" && velocityX !== -1) {
+    } else if (key === "ArrowRight" && velocityX !== -1) {
         velocityX = 1;
         velocityY = 0;
     }
@@ -135,3 +146,9 @@ const initGame = () => {
 changeFoodPosition();
 setIntervalId = setInterval(initGame, 125);
 document.addEventListener("keydown", changeDirection);
+
+// Agregar event listeners para los botones
+document.getElementById("up-btn").addEventListener("click", changeDirection);
+document.getElementById("down-btn").addEventListener("click", changeDirection);
+document.getElementById("left-btn").addEventListener("click", changeDirection);
+document.getElementById("right-btn").addEventListener("click", changeDirection);
