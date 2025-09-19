@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #1a1a2e;
+    color: #eee;
+}
+
+.wrapper {
+    width: 65vmin;
+    height: 70vmin;
+    background: #16213e;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 4px solid #0f3460;
+    box-shadow: 0 0 20px rgba(15, 52, 96, 0.7);
+}
+
+.game-details {
+    color: #e94560;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    background: #0f3460;
+    text-shadow: 2px 2px 0 #533483;
+}
+
+.play-board {
+    width: 100%;
+    height: 100%;
+    background: #1a1a2e;
+    display: grid;
+    grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+    border: 2px solid #0f3460;
+}
+
+.play-board .food {
+    background: #e94560;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #e94560;
+    animation: pulse 1s infinite alternate;
+}
+
+.play-board .head {
+    background: #4fbdba;
+    border-radius: 4px;
+    box-shadow: 0 0 5px #4fbdba;
+}
+
+.play-board .body {
+    background: #7ec8e3;
+    border-radius: 4px;
+    box-shadow: 0 0 3px #7ec8e3;
+}
+
+.controls {
+    padding: 10px;
+    text-align: center;
+    background: #0f3460;
+    color: #e94560;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
