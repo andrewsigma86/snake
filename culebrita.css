@@ -10,13 +10,15 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: transparent;
+    background: #1a4f8a; /* Fondo azul en lugar de transparente */
     color: #eee;
 }
 
 .wrapper {
-    width: 65vmin;
-    height: 70vmin;
+    width: 90vw;
+    height: 90vh;
+    max-width: 500px;
+    max-height: 700px;
     background: #16213e;
     display: flex;
     overflow: hidden;
@@ -44,6 +46,8 @@ body {
     display: grid;
     grid-template: repeat(30, 1fr) / repeat(30, 1fr);
     border: 2px solid #0f3460;
+    flex-grow: 1;
+    aspect-ratio: 1 / 1;
 }
 
 .play-board .food {
@@ -119,5 +123,76 @@ body {
     }
     to {
         transform: scale(1.1);
+    }
+}
+
+/* Media queries para tablets */
+@media (max-width: 768px) {
+    .wrapper {
+        width: 95vw;
+        height: 95vh;
+        max-width: none;
+        max-height: none;
+    }
+    
+    .game-details {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+    
+    .arrow-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
+
+/* Media queries para móviles */
+@media (max-width: 480px) {
+    .wrapper {
+        border-radius: 5px;
+        border-width: 2px;
+    }
+    
+    .game-details {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    .controls {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+    
+    .arrow-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        margin: 3px;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 320px) {
+    .wrapper {
+        width: 98vw;
+        height: 98vh;
+    }
+    
+    .game-details {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+    
+    .controls {
+        font-size: 0.7rem;
+        padding: 6px;
+    }
+    
+    .arrow-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        margin: 2px;
     }
 }
