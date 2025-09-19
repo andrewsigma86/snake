@@ -10,7 +10,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #1a1a2e;
+    background: transparent;
     color: #eee;
 }
 
@@ -73,6 +73,44 @@ body {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.arrow-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.arrow-row {
+    display: flex;
+    justify-content: center;
+}
+
+.arrow-btn {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    background: #e94560;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.arrow-btn:hover {
+    background: #c13651;
+    transform: scale(1.05);
+}
+
+.arrow-btn:active {
+    transform: scale(0.95);
 }
 
 @keyframes pulse {
